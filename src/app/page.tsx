@@ -8,3 +8,11 @@ export default function Home() {
     </main>
   )
 }
+
+export function Events() {
+  return (
+    <main>
+      <p>events page</p>
+    </main>
+  )
+}

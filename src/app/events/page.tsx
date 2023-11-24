@@ -53,15 +53,15 @@ Afterwork            </p>
                  alt=''
                  className='rounded-md duration-200 hover:scale-105'
                />
-               <div className='flex items-center justify-center'>
+               <div className='button-container'>
                  <button
-                   className='w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105'
+                   className='button1'
                    onClick={() => window.open(link, '_blank')}
                  >
                    add
                  </button>
                  <button
-                   className='w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105'
+                   className='button2'
                    onClick={() => window.open(link, '_blank')}
                  >
                    button
@@ -81,7 +81,6 @@ export default function Events() {
     <main>
       <Navigation/>
       <ImageGrid/>
-      <h2 className='red'>events page</h2>
       
     </main>
   )

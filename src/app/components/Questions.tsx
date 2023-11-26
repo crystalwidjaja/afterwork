@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const majorCities = ["Los Angeles", "Chicago", "New York City", "San Francisco"]
+const majorCities = ["", "Chicago", "Los Angeles", "New York City", "San Francisco"]
 
 const tiers = [{tier: "Standard", image:"money.jpeg", pricing:"up to $1,000", description:"For the cost-concious planner who wants to create a remarkable experience without exceeding a tight budget"},
                 {tier: "Mid-tier", image:"money.jpeg", pricing:"up to $5,000", description:"For the cost-concious planner who wants to create a remarkable experience without exceeding a tight budget"},
@@ -150,12 +150,20 @@ export function Services({ formID, visible, goBack, goNext }){
     )
 }
 
-export function Final({ formID, visible, goBack, goNext }){
+export function Submit({ formID, visible, goBack, goNext }){
     return (
         <div class={visible ? "block":"hidden"}>
             <input form={formID} class="border-2 text-xl" type="submit" value="Ready to Submit?"/>
             <br/>
             <button class="border-2 bg-blue-500 text-white" onClick={goBack}>Previous</button>
+        </div>
+    )
+}
+
+export function Final({ formID, visible, goBack, goNext }){
+    return (
+        <div class={visible ? "block":"hidden"}>
+            <p>Creating your new itinerary...</p>
         </div>
     )
 }

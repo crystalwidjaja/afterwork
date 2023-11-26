@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:display=swap');
+
+hr {
+    height:1px;
+    border-width:0;
+    background-color:#7E7F81;
+    margin-top: 10px;
+  }
+body {
+    background-color: white;
+    color: black;
+    font-family: 'Inter', sans-serif;
+}
+
+.test-class {
+    color: #192BC2;
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    font-size: 50px;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.google-login {
+    color: #7E7F81;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    outline: black solid;
+    margin-left: 500px;
+    margin-right: 500px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.or {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: #7E7F81;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: auto;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+input[type=text], select {
+    width: 40%;
+    color: #192BC2;
+    border: 2px solid #1539CE;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.form-submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+  }
+
+#create-account {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.no-account {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #7E7F81;
+    margin: 2px;
+}
+
+.create-here {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1539CE;
+    margin: 2px;
+}

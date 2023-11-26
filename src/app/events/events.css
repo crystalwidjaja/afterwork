@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .py-6 {
     color: black;
     font-size: 30px;
@@ -22,6 +23,14 @@
     align-items: center;
 }
 
+.bg-color {
+    background-color: #1436cd7f;
+}
+
+input::placeholder {
+    color: white;
+}
+
 .blue-box {
     background-color: #192BC2;
 }
@@ -30,7 +39,7 @@
     display: flex;
     align-items: center;
     margin: 5px 30px;
-  }
+}
 
 .title {
     font-size: 20px;
@@ -50,4 +59,32 @@
 .time {
     margin: 5px 30px;
     margin-bottom: 10%;
+}
+
+.button-saastr {
+    background-color: #192BC2;
+    color: white;
+}
+
+.button-fintech {
+    background-color: #3BCEAC;
+    color: white;
+}
+
+.button-investors {
+    background-color: #FFB100;
+    color: white;
+}
+
+.button-blockchain {
+    background-color: #BB86FC;
+    color: white;
+}
+
+.button-saastr:hover,
+.button-fintech:hover,
+.button-investors:hover,
+.button-blockchain:hover {
+    background-color: #abadc2;
+    color: white;
 }

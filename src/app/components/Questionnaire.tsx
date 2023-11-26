@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from 'react';
-import {Landing, WhereHeld, GuestAmount, Budget, Vibe, Services, Final} from './Questions';
+import {Landing, WhereHeld, GuestAmount, Budget, Vibe, Services, Submit, Final} from './Questions';
 
-const questions = [Landing, WhereHeld, GuestAmount, Budget, Vibe, Services, Final]
+const questions = [Landing, WhereHeld, GuestAmount, Budget, Vibe, Services, Submit, Final]
 
 function ProgressDots({currentQuestion, totalQuestions, onSelect}){
     return (
@@ -22,7 +22,7 @@ export default function Questionnaire(){
     return (
         <div class="max-w-screen-md max-h-screen-md mx-auto content-center text-black border-2">
             <div>
-            <form id="questionnaire" class="hidden"/>
+            <form id="questionnaire" class="hidden" onSubmit={()=>alert("hi")}/>
             {questions.map((Question, index) => (
                 <Question 
                     formID="questionnaire"
@@ -35,7 +35,7 @@ export default function Questionnaire(){
             </div>
             
             <div class="flex-end">
-            <ProgressDots currentQuestion = {currentQuestion} totalQuestions = {questions.length} onSelect = {setQuestion}/>
+            <ProgressDots currentQuestion = {currentQuestion} totalQuestions = {questions.length-1} onSelect = {setQuestion}/>
             </div>
         </div>
     )

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-const majorCities = ["Los Angeles", "Chicago", "New York City", "San Francisco"]
+const buttonStyle = "border-2 bg-blue-500 text-white"
+
+const majorCities = ["", "Chicago", "Los Angeles", "New York City", "San Francisco"]
 
 const tiers = [{tier: "Standard", image:"money.jpeg", pricing:"up to $1,000", description:"For the cost-concious planner who wants to create a remarkable experience without exceeding a tight budget"},
                 {tier: "Mid-tier", image:"money.jpeg", pricing:"up to $5,000", description:"For the cost-concious planner who wants to create a remarkable experience without exceeding a tight budget"},
@@ -19,7 +21,7 @@ export function Landing({ formID, visible, goBack, goNext }){
         <div class={visible ? "block":"hidden"}>
             <p>Welcome to the planner!</p>
             <p>We'll be using AI to generate all the events in the area according to your choosing</p>
-            <button class="border-2 bg-blue-500 text-white" onClick={goNext}>Click to go next</button>
+            <button class={buttonStyle} onClick={goNext}>Click to go next</button>
         </div>
     )
 }
@@ -36,8 +38,8 @@ export function WhereHeld({ formID, visible, goBack, goNext }){
                 </select>
             </form>
 
-            <button class="border-2 bg-blue-500 text-white" onClick={goBack}>Previous</button>
-            <button class="border-2 bg-blue-500 text-white"onClick={goNext}>Next</button>
+            <button class={buttonStyle} onClick={goBack}>Previous</button>
+            <button class={buttonStyle} onClick={goNext}>Next</button>
         </div>
     )
 }
@@ -53,8 +55,8 @@ export function GuestAmount({ formID, visible, goBack, goNext }){
                 <a>guests</a>
             </form>
 
-            <button class="border-2 bg-blue-500 text-white" onClick={goBack}>Previous</button>
-            <button class="border-2 bg-blue-500 text-white" onClick={goNext}>Next</button>
+            <button class={buttonStyle} onClick={goBack}>Previous</button>
+            <button class={buttonStyle} onClick={goNext}>Next</button>
         </div>
     )
 }
@@ -90,8 +92,8 @@ export function Budget({ formID, visible, goBack, goNext }){
                                                     description={info.description}/>)}
             </form>
             <div>
-                <button class="border-2 bg-blue-500 text-white" onClick={goBack}>Previous</button>
-                <button class="border-2 bg-blue-500 text-white" onClick={goNext}>Next</button>
+                <button class={buttonStyle} onClick={goBack}>Previous</button>
+                <button class={buttonStyle} onClick={goNext}>Next</button>
             </div>
         </div>
     )
@@ -123,8 +125,8 @@ export function Vibe({ formID, visible, goBack, goNext }){
                                                     image={info.image}/>)}
             </form>
             <div>
-                <button class="border-2 bg-blue-500 text-white" onClick={goBack}>Previous</button>
-                <button class="border-2 bg-blue-500 text-white" onClick={goNext}>Next</button>
+                <button class={buttonStyle} onClick={goBack}>Previous</button>
+                <button class={buttonStyle} onClick={goNext}>Next</button>
             </div>
         </div>
     )
@@ -143,9 +145,19 @@ export function Services({ formID, visible, goBack, goNext }){
                 ))}
             </form>
             <div>
-                <button class="border-2 bg-blue-500 text-white" onClick={goBack}>Previous</button>
-                <button class="border-2 bg-blue-500 text-white" onClick={goNext}>Next</button>
+                <button class={buttonStyle} onClick={goBack}>Previous</button>
+                <button class={buttonStyle} onClick={goNext}>Next</button>
             </div>
+        </div>
+    )
+}
+
+export function Submit({ formID, visible, goBack, goNext }){
+    return (
+        <div class={visible ? "block":"hidden"}>
+            <input form={formID} class="border-2 text-xl" type="submit" value="Ready to Submit?"/>
+            <br/>
+            <button class={buttonStyle} onClick={goBack}>Previous</button>
         </div>
     )
 }
@@ -153,9 +165,7 @@ export function Services({ formID, visible, goBack, goNext }){
 export function Final({ formID, visible, goBack, goNext }){
     return (
         <div class={visible ? "block":"hidden"}>
-            <input form={formID} class="border-2 text-xl" type="submit" value="Ready to Submit?"/>
-            <br/>
-            <button class="border-2 bg-blue-500 text-white" onClick={goBack}>Previous</button>
+            <p>Creating your new itinerary...</p>
         </div>
     )
 }

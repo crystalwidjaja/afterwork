@@ -6,27 +6,92 @@ import Navigation from "../components/navbar";
 import React from "react";
 import './events.css'
 
+interface BlockProps {
+  id: number,
+  src: string,
+  link: string,
+  title: string,
+  date: string,
+  place: string,
+  time: string,
+}
+
+const boxColors = ['#192BC2', '#3BCEAC', '#FFB100', '#BB86FC'];
+
+const EventBlock: React.FC<BlockProps> = ({id, src, link, title, date, place, time}) => {
+  return (
+
+    <div
+      key={id}
+      className='blue-box shadow-md shadow-gray-600 rounded-lg overflow-hidden'
+    >
+      <img
+        src={src}
+        alt=''
+        className='rounded-md duration-200 hover:scale-105 max-w-full'
+      />
+      <div className='box-details'>
+        <div className='title'>{title}</div>
+        <div className='details'>
+          <div className='icon'>
+            <img src="Calendericon.png" alt="Calendar" />
+          </div>
+          <div className='date'>{date}</div>
+        </div>
+        <div className='details'>
+          <div className='icon'>
+            <img src="placeicon.png" alt="Place" />
+          </div>
+          <div className='place'>{place}</div>
+        </div>
+        <div className='details'>
+          <div className='icon'>
+            <img src="timeicon.png" alt="Time" />
+          </div>
+          <div className='time'>{time}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function ImageGrid() {
   const items = [
    {
      id: 1,
      src: 'https://s3-alpha-sig.figma.com/img/4907/4b8a/73b2a11ccd964b2e14d4a2f48a90d23e?Expires=1701648000&Signature=ILt1BtAd16LOGMvfYlZvbt4JNr7kReBe3CDJT5hTpVV~Yo70atSN6iiLXAo1e4hXFmyobGWE0HWiaddGG1SnToVV0pDRI8UAv-0IGW1iGj9n3Fukn1iUHPouKJTa2ruG-3DNzMqjEe1hZXziX0H62zI164iCE4B~BqjAsl6Uni0PCE9VhSS6GRYD~26LCpWRxB78iZmiQ6VDWM3Gi7WFWpVfRh32NydI0L8Wc36lVyqK5OMLgFPMklAJetEU89v37d6-gB3ESPVikyBd0J2BjpP~lVEaMeghINBSL~aeCmGKPqjjfmQlADouUYguT3nRen9QDhIb2fzThpnA0c7CSg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
      link: 'link here',
+     title: 'A Glass of SaaS',
+     date: 'October 17, 2023',
+     place: '139 Durant Ave, Unit 202',
+     time: '4:00 - 7:00PM',
    },
    {
      id: 2,
      src: 'https://s3-alpha-sig.figma.com/img/8e0b/f052/f5f8db15309bef57501323bfb17a4776?Expires=1701648000&Signature=bYZ5tML90~F~HfMGG7nOrfDMsItKm5kEZWvHvXdOGKaxGvkSw60yG2GWOuIoD4sD0p0XU35RgNG1Mx1~636AyCDzNr5sjYmBtnNBNqirQvNxchLWlCp1XVcvyPqLaJ3Ntm0S1V460Wa0HkSZzcT3aMqnYxh8J0XOGksxzyhJgq0Bu8itCqPOSrW~0hN39PFWHnQFL4yQ3-Z5g-aFwB4t29OE6DONQpmLqo2ArrWKTzEcQEbjmA~XPr2O-2ZqXhu77Lhyj4XLWUBg~bH8NhkK7WEPdSkpnvoXXCC8l6AibKPSSnbNFnkp2PN69dWkbQFn8AYxPeeedmT7XAprqICpMw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
      link: 'link here',
+     title: 'Pre-Saastr Huddle',
+     date: 'September 5, 2023',
+     place: '139 Durant Ave, Unit 202',
+     time: '4:00 - 7:00PM',
    },
    {
      id: 3,
-     src: 'https://s3-alpha-sig.figma.com/img/6ae7/a660/f2b7bbd2b5bb7ae0d170d8be42a89d48?Expires=1701648000&Signature=ki1aSZfgE7ot0Jmul1ZjIdSD2YNhLFO8F8QgSIeJdcj8UP9sgFNtXlVC2XZnt5J2cHncFvV-RkZDQfyKYo7GFBemzPGI9HM9plPohrur1kp8ZKHZTjmD2oMB-8YffyuZoc5lKTDFlPUkJlVDd8skpLYUwTXhQM5OODL~v8P4wVo4eyKmvHyamsnJzxR7-uqv5mfVNGBl1LSm-AJOOrlPht43TPZZaaDtcMezwx~4IRUUPNqkGAaK4oG4ZGxQJZd7VX9PCYWFjBvxuZ3OWwaN3lSQ40P12NVCnOKUXpHD57Iuf5prVHONitiORSfqkti1Rl6lu25pm4fF5O~tAtPMWA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+     src: 'https://s3-alpha-sig.figma.com/img/bffd/4c14/28a3da58fe8197fe3caed24603065d8d?Expires=1701648000&Signature=i6SVEBNlh6gTymvtJau5OeNJ8HOYAJQiYW8cxdvnA9xrTZ2esfzf551zcr4Y~MzFtHk03QdOXDeVnlpc7-x1iOuFq-KusLb5AB7DGptgI5-UTASBIIW0frreMo75yMbtFOSJVeg-LbMendizymB8kPSnDwko72VF4KSG2isoRPa82EDkxzaL4t~Xp8fTjnYdU~Cc-KiNwfbCdqt-7nvD5lNP83BZpW4lcetIexh77bn6jCJLky0W9iZxLrzt9UWJ8xvjf6PZ50e0hQ~LxmD3p~CBa5WES-tT0A51kJ~jA41-qExgd~NE~9YngRfGgxs23IE-cURVK4lyNbqPnOJ66g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
      link: 'link here',
+     title: 'PLG Happy Hour',
+     date: 'September 7, 2023',
+     place: '139 Durant Ave, Unit 202',
+     time: '4:00 - 7:00PM',
    },
    {
      id: 4,
      src: 'https://s3-alpha-sig.figma.com/img/54bb/fd7e/bcaa70b4a8e276e307549766742649af?Expires=1701648000&Signature=Ks1tmbx3SXC791w2J~KZBuVlauIdGUHJ~HgNWu6qfZpQWogZravk7Zr7sAgKj1rOXWQcnJfUyZ7L-VfCsI505WMGLc0gBZ3fD6RQTxeg7hkBsb4h7gE6XCd4smf9AFdUca1geod7nBzr8wzwr3S55ZFhqzwxPCAdAeNOKw7FnnHE5YLczB9v69pdIKNMGrIT5Pi8YnIVmHAij0CY0u4SoiuwfBdB7orEg~Mat5~SRzOEU9nSglKLs1pwr7UCVacWNJt~g9zc4fzcmms8bvGRmbR7f0-TofTfiPYF~3p34xMF-vzeulSQbyMz0SwKiR4qWsEqFRNS788me2HZD0v~jw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
      link: 'link here',
+     title: 'B2Breakfast',
+     date: 'September 8, 2023',
+     place: '139 Durant Ave, Unit 202',
+     time: '4:00 - 7:00PM',
    },
  ];
  return (
@@ -43,31 +108,17 @@ Afterwork            </p>
          </div>
 
          <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5'>
-           {items.map(({ id, src, link }) => (
-             <div
-               key={id}
-               className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
-             >
-               <img
-                 src={src}
-                 alt=''
-                 className='rounded-md duration-200 hover:scale-105'
-               />
-               <div className='button-container'>
-                 <button
-                   className='button1'
-                   onClick={() => window.open(link, '_blank')}
-                 >
-                   add
-                 </button>
-                 <button
-                   className='button2'
-                   onClick={() => window.open(link, '_blank')}
-                 >
-                   button
-                 </button>
-               </div>
-             </div>
+           {items.map(({ id, src, title, date, place, time }, index) => (
+             <EventBlock id = {id}
+                    src = {src}
+                    link = "hi"
+                    title = {title}
+                    date = {date}
+                    place = {place}
+                    time = {time}>
+                    boxColor={boxColors[index % boxColors.length]}
+             
+             </EventBlock>
              ))}
             </div>
           </div>

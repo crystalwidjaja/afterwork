@@ -22,12 +22,32 @@
     align-items: center;
 }
 
-.button-container {
-    display: flex;
-    justify-content: space-between;
+.blue-box {
+    background-color: #192BC2;
 }
 
-.button1, .button2 {
-    color: black;
-    margin: 0 50px;
+.details {
+    display: flex;
+    align-items: center;
+    margin: 5px 30px;
+  }
+
+.title {
+    font-size: 20px;
+    margin: 5px 30px;
+    margin-top: 10%;
+}
+
+.date {
+    margin: 5px 30px;
+    margin-top: 5%;
+}
+
+.place {
+    margin: 5px 30px;
+}
+
+.time {
+    margin: 5px 30px;
+    margin-bottom: 10%;
 }

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from 'react';
-import './Questionnaire.css'; // Import your CSS file
 import {Landing, WhereHeld, GuestAmount, Budget, Vibe, Services, Final} from './Questions';
 
 const questions = [Landing, WhereHeld, GuestAmount, Budget, Vibe, Services, Final]

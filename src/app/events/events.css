@@ -1,3 +1,98 @@
+@import url('https://rsms.me/inter/inter.css');
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Inter', sans-serif;
+}
+
+.colored-boxes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.white-background {
+    position: relative;
+    z-index: 2;
+}
+
+.yellow-box {
+    border-radius: 147px;
+    background-color: #FFB100;
+    height: 300px;
+    width: 150px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.teal-box {
+    border-radius: 147px;
+    background-color: #3BCEAC;
+    height: 300px;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.logo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 350px;
+    max-height: 350px;
+}
+
+.purple-box {
+    border-radius: 147px;
+    background-color: #BB86FC;
+    height: 300px;
+    width: 150px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.search-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 7px;
+    padding-left: 50px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    background-color: #1436cd7f;
+    color: white;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
 .pb-8 {
     color: black;
     font-size: 30px;
@@ -31,8 +126,17 @@ input::placeholder {
     color: white;
 }
 
+input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .blue-box {
     background-color: #192BC2;
+}
+
+.blue-box.hovered {
+    border: 2px solid #ffffff;
 }
 
 .details {
@@ -45,6 +149,7 @@ input::placeholder {
     font-size: 20px;
     margin: 5px 30px;
     margin-top: 10%;
+    font-weight: bold;
 }
 
 .date {
@@ -81,10 +186,18 @@ input::placeholder {
     color: white;
 }
 
+.button-saastr,
+.button-fintech,
+.button-investors,
+.button-blockchain {
+    padding: 20px 40px;
+    font-size: 20px;
+}
+
 .button-saastr:hover,
 .button-fintech:hover,
 .button-investors:hover,
 .button-blockchain:hover {
-    background-color: #abadc2;
+    background-color: #1e1f24;
     color: white;
 }

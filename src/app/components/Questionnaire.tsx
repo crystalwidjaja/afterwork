@@ -5,6 +5,7 @@ import { Landing, WhereHeld, GuestAmount, Budget, Vibe, Services, Submit, Final 
 
 const questions = [Landing, WhereHeld, GuestAmount, Budget, Vibe, Services, Submit, Final];
 
+
 interface ProgressDotsProps {
     currentQuestion: number;
     totalQuestions: number;
@@ -25,30 +26,31 @@ function ProgressDots({ currentQuestion, totalQuestions, onSelect }: ProgressDot
     );
 }
 
+
 export default function Questionnaire() {
     const [currentQuestion, setQuestion] = useState(0);
-
+  
     return (
-        <div style={{ backgroundColor: 'rgba(17, 43, 100, 0.58)' }} className="min-h-screen flex items-center justify-center">
-            <div className="max-w-screen-md max-h-screen-md mx-auto content-center text-black border-2 bg-white p-8 rounded-md" style={{ width: '700px', height: '300px' }}>
-                <form id="questionnaire" className="hidden" onSubmit={() => alert('hi')} />
-                {questions.map((Question, index) => (
-                    <Question
-                        key={index}
-                        formID="questionnaire"
-                        visible={index === currentQuestion}
-                        goBack={() => setQuestion(currentQuestion - 1)}
-                        goNext={() => setQuestion(currentQuestion + 1)}
-                    />
-                ))}
-                <div className="mt-8 flex items-center justify-center mt-8 space-x-2">
-                    <ProgressDots
-                        currentQuestion={currentQuestion}
-                        totalQuestions={questions.length - 1}
-                        onSelect={setQuestion}
-                    />
-                </div>
-            </div>
+      <div style={{ backgroundColor: 'rgba(17, 43, 100, 0.58)' }} className="min-h-screen flex items-center justify-center">
+        <div className="max-w-screen-md max-h-screen-md mx-auto content-center text-black border-2 bg-white p-8 rounded-md" style={{ width: '700px', height: '350px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <form id="questionnaire" className="hidden" onSubmit={() => alert('hi')} />
+          {questions.map((Question, index) => (
+            <Question
+              key={index}
+              formID="questionnaire"
+              visible={index === currentQuestion}
+              goBack={() => setQuestion(currentQuestion - 1)}
+              goNext={() => setQuestion(currentQuestion + 1)}
+            />
+          ))}
+          <div className="mt-4 flex items-center justify-center space-x-2">
+            <ProgressDots
+              currentQuestion={currentQuestion}
+              totalQuestions={questions.length - 1}
+              onSelect={setQuestion}
+            />
+          </div>
         </div>
+      </div>
     );
-}
+  }

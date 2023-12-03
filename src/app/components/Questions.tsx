@@ -32,7 +32,7 @@ export function Landing({ formID, visible, goBack, goNext }) {
                     <p className="mb-8 font-bold">Welcome to the planner!</p>
                     <p className="mb-8">We'll be using AI to generate all the events in the area according to your choosing</p>
                     <button
-                        className={`${buttonStyle} px-4 py-2 rounded-full transition-transform transform hover:scale-105 duration-400`}
+                        className={`${buttonStyle} px-4 py-2 mb-9 rounded-full transition-transform transform hover:scale-110 duration-400`}
                         style={{
                             backgroundImage: 'linear-gradient(to bottom right, #1539CE, #15CECE)',
                             color: '#ffffff',
@@ -48,15 +48,20 @@ export function Landing({ formID, visible, goBack, goNext }) {
     );
 }
 
-export function WhereHeld({ formID, visible, goBack, goNext }) {
+export function WhereHeld({ formID, visible, goBack, goNext }: WhereHeldProps) {
     return (
-        <div className={`container ${visible ? 'block' : 'hidden'} text-center my-8`}>
+        <div className={`container ${visible ? 'block' : 'hidden'} text-center my-8`} style={{ position: 'relative' }}>
             <p className="mb-6 mt-7">Let's get some basic info about your event!</p>
 
             <form id={formID} className="mb-6 flex justify-center items-center">
                 <p className="mr-4 font-bold">Your event will be held in</p>
                 <label htmlFor="location" className="block mb-4">
-                    <select className="rounded-full bg-gray-200 p-2" id="locationOptions" name="locationOptions">
+                <select
+            className="rounded-full bg-gray-200 p-2"
+            id="locationOptions"
+            name="locationOptions"
+            style={{ backgroundColor: 'rgba(21, 57, 206, 0.19)', color: 'rgba(21, 57, 206, 0.19)' }}
+          >
                         {majorCities.map((city) => (
                             <option value={city} key={city}>
                                 {city}
@@ -66,23 +71,26 @@ export function WhereHeld({ formID, visible, goBack, goNext }) {
                 </label>
             </form>
 
-            <button
-                className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-4 py-2 rounded-full mr-4 transition-all`}
-                onClick={goBack}
-            >
-                Previous
-            </button>
+            <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
+                <button
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
+                    onClick={goBack}
+                >
+                    Previous
+                </button>
 
-            <button
-                className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white rounded-full px-4 py-2 transition-all`}
-                onClick={goNext}
-            >
-                Next
-            </button>
+                <button
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
+                    onClick={goNext}
+                >
+                    Next
+                </button>
+            </div>
 
         </div>
     );
 }
+
 
 
 
@@ -93,24 +101,30 @@ export function GuestAmount({ formID, visible, goBack, goNext }) {
 
             <form id={formID} className="mb-4">
                 <label htmlFor="guestAmount" className="font-bold mb-4"> I am expecting an average of </label>
-                <input className="border-4 bg-gray-200 mb-4 ml-3 mr-3 p-1 rounded-full" type="number" />
+                <input
+        className="border-4 bg-gray-200 mb-4 ml-3 mr-3 p-1 rounded-full"
+        type="number"
+        style={{ backgroundColor: 'rgba(21, 57, 206, 0.19)', color: 'rgba(21, 57, 206, 0.19)' }}
+      />
                 <a className="mb-4 font-bold">guests</a>
             </form>
 
 
-            <button
-                className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-4 py-2 rounded-full mr-4 transition-all`}
-                onClick={goBack}
-            >
-                Previous
-            </button>
+            <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
+                <button
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
+                    onClick={goBack}
+                >
+                    Previous
+                </button>
 
-            <button
-                className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white rounded-full px-4 py-2 transition-all`}
-                onClick={goNext}
-            >
-                Next
-            </button>
+                <button
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
+                    onClick={goNext}
+                >
+                    Next
+                </button>
+            </div>
 
         </div>
     )
@@ -138,9 +152,9 @@ export function Budget({ formID, visible, goBack, goNext }) {
     const [selection, changeSelection] = useState("");
 
     return (
-        <div className={visible ? "block text-center mt-4" : "hidden"}>
-            <p className="mb-2 text-2xl font-bold">What's your budget</p>
-            <div className="flex justify-between">
+        <div className={visible ? "block text-center mt-4" : "hidden "}>
+            <p className="font-mulish mb-2 text-2xl font-bold">What's your budget</p>
+            <div className="flex justify-between mb-4">
                 <BudgetChoice
                     checked={tiers[0].tier === selection}
                     onSelect={changeSelection}
@@ -166,15 +180,16 @@ export function Budget({ formID, visible, goBack, goNext }) {
                     description={tiers[2].description}
                 />
             </div>
-            <div className="flex justify-center mt-4">
+            <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-4 py-2 rounded-full mr-4 transition-all`}
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
                     onClick={goBack}
                 >
                     Previous
                 </button>
+
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white rounded-full px-4 py-2 transition-all`}
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
                     onClick={goNext}
                 >
                     Next
@@ -184,66 +199,71 @@ export function Budget({ formID, visible, goBack, goNext }) {
     );
 }
 
-
-
-function VibeChoice({ checked, vibe, image, onSelect }) {
+export function VibeChoice({ checked, vibe, image, onSelect }) {
+    const [isHovered, setHovered] = useState(false);
+  
     return (
-        <div className="border p-4 flex flex-col items-center md:w-48">
-            <label htmlFor={vibe} onClick={() => onSelect(vibe)}>
-                <input className="absolute w-0 h-0" type="radio" name="budget" />
-                <div
-                    className={`cursor-pointer ${checked ? "bg-blue-800 text-white" : "bg-white text-blue-800"
-                        } p-2 flex flex-col items-center`}
-                >
-                    <p className="text-sm md:text-lg font-bold mb-2">{vibe}</p>
-                    <div className="flex justify-center mb-2">
-                        <img className="w-8 h-8 md:w-10 md:h-10" src={image} alt={vibe} />
-                    </div>
-                </div>
-            </label>
-        </div>
+      <div className="border p-1 flex flex-col items-center md:w-48 md:h-48 transition-all overflow-hidden mb-3">
+        <label htmlFor={vibe} onClick={() => onSelect(vibe)}>
+          <input className="absolute w-0 h-0" type="radio" name="budget" />
+          <div
+            className={`cursor-pointer transition-all ${
+              isHovered ? "bg-blue-800 text-white scale-105" : "bg-white text-blue-800"
+            } p-0 flex flex-col items-center h-full`}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            <p className="text-sm md:text-lg font-bold mb-2">{vibe}</p>
+            <div className="flex justify-center mb-2">
+              {/* Adjust the width and height as per your requirement */}
+              <img className="w-25 h-21" src={image} alt={vibe} />
+            </div>
+          </div>
+        </label>
+      </div>
     );
-}
-
-export function Vibe({ formID, visible, goBack, goNext }) {
+  }
+  
+  export function Vibe({ formID, visible, goBack, goNext }) {
     const [selection, changeSelection] = useState("");
-
+  
     return (
-        <div className={visible ? "block text-center mt-4" : "hidden"}>
-            <p className="mb-2 text-2xl font-bold">What's the vibe?</p>
-            <p className="text-sm mb-2">
-                This will help us provide you the best recommendations for your event.
-            </p>
-            <form id={formID} className="flex justify-around flex-wrap">
-                {vibes.map((info, index) => (
-                    <VibeChoice
-                        key={index}
-                        checked={info.vibe === selection}
-                        onSelect={changeSelection}
-                        vibe={info.vibe}
-                        image={info.image}
-                    />
-                ))}
-            </form>
-            <div className="flex justify-center mt-4">
-                <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-4 py-2 rounded-full mr-4 transition-all`}
-                    onClick={goBack}
-                >
-                    Previous
-                </button>
-                <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white rounded-full px-4 py-2 transition-all`}
-                    onClick={goNext}
-                >
-                    Next
-                </button>
-            </div>
+      <div className={visible ? "block text-center mt-4 px-6" : "hidden"}>
+        <p className="mb-2 text-2xl font-bold">What's the vibe?</p>
+        <p className="text-sm mb-2">
+          This will help us provide you the best recommendations for your event.
+        </p>
+        <form id={formID} className="flex justify-between flex-wrap">
+          {vibes.map((info, index) => (
+            <VibeChoice
+              key={index}
+              checked={info.vibe === selection}
+              onSelect={changeSelection}
+              vibe={info.vibe}
+              image={info.image}
+            />
+          ))}
+        </form>
+  
+        <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
+          <button
+            className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
+            onClick={goBack}
+          >
+            Previous
+          </button>
+  
+          <button
+            className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
+            onClick={goNext}
+          >
+            Next
+          </button>
         </div>
+      </div>
     );
-}
-
-
+  }
+  
 export function Services({ formID, visible, goBack, goNext }) {
     // Split the services into three sections
     const sections = [
@@ -268,20 +288,22 @@ export function Services({ formID, visible, goBack, goNext }) {
                 </div>
             ))}
 
-            <div className="flex justify-center">
+            <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-4 py-2 rounded-full mr-4 transition-all`}
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
                     onClick={goBack}
                 >
                     Previous
                 </button>
+
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white rounded-full px-4 py-2 transition-all`}
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
                     onClick={goNext}
                 >
                     Next
                 </button>
             </div>
+
         </div>
     );
 }
@@ -291,9 +313,24 @@ export function Submit({ formID, visible, goBack, goNext }) {
         <div className={visible ? "block text-center mt-4" : "hidden"}>
             <div className="flex flex-col items-center">
                 <input form={formID} className="text-2xl font-bold mb-4" type="submit" value="Ready to Submit?" />
-                <button className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-4 py-2 rounded-full transition-all`} onClick={goBack}>
+                
+                <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
+
+                <button
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
+                    onClick={goBack}
+                >
                     Previous
                 </button>
+                        
+
+                <button
+                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
+                    onClick={goNext}
+                >
+                    Submit
+                    </button>
+                </div>
             </div>
         </div>
     );
@@ -302,10 +339,9 @@ export function Submit({ formID, visible, goBack, goNext }) {
 
 export function Final({ formID, visible, goBack, goNext }) {
     return (
-        <div class={visible ? "block" : "hidden"}>
-            <p>Creating your new itinerary...</p>
+        <div className={visible ? "block" : "hidden"}>
+            <p className="font-bold mb-8">Creating your new itinerary...</p>
         </div>
-    )
+    );
 }
-
 

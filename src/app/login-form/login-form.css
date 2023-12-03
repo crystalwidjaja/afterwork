@@ -1,24 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:display=swap');
 
 hr {
-    height:1px;
-    border-width:0;
-    background-color:#7E7F81;
+    height: 1px;
+    border-width: 0;
+    background-color: #7E7F81;
     margin-top: 10px;
-  }
+}
+
 body {
     background-color: white;
     color: black;
     font-family: 'Inter', sans-serif;
 }
 
-.test-class {
+.welcome {
     color: #192BC2;
-    font-weight: 900;
+    font-weight: 700;
     font-family: 'Inter', sans-serif;
     font-size: 50px;
     margin-top: 50px;
     margin-left: 100px;
+}
+
+.google-logo {
+    margin-right: 15px;
 }
 
 .google-login {
@@ -37,13 +42,25 @@ body {
     margin-top: 50px;
 }
 
+#or-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar {
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .or {
     font-family: 'Inter', sans-serif;
     font-size: 20px;
     color: #7E7F81;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: auto;
 }
 
@@ -54,12 +71,14 @@ body {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-  }
+    margin-top: 10px;
+}
 
-input[type=text], select {
+input[type=text],
+select {
     width: 40%;
     color: #192BC2;
-    border: 2px solid #1539CE;
+    border: 2px solid #192BC2;
     border-radius: 10px;
     padding: 10px 20px;
     margin: 10px;
@@ -67,11 +86,29 @@ input[type=text], select {
     justify-content: center;
 }
 
+.login-button {
+    background-color: #192BC2;
+    color: white;
+    width: 130px;
+    height: 40px;
+    font-weight: 400;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px #bdbdbd;
+}
+
+.login-button:hover {
+    opacity: 0.8;
+}
+
 .form-submit {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly
-  }
+    justify-content: space-evenly;
+    font-size: 19px;
+    font-weight: 400;
+    margin-left: 150px;
+    margin-right: 150px;
+}
 
 #create-account {
     display: flex;
@@ -92,6 +129,6 @@ input[type=text], select {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 18px;
-    color: #1539CE;
+    color: #192BC2;
     margin: 2px;
 }

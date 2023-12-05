@@ -10,8 +10,11 @@ const Navbar = () => {
       <div className="w-full h-20 bg-white sticky top-0">
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-          <Logo />
-            <ul className="hidden md:flex gap-x-6 text-black">
+            {/* Check the styles applied to the Logo component */}
+            <Logo className="max-h-full" />
+
+            {/* Ensure that the ul element doesn't affect the positioning */}
+            <ul className="hidden md:flex gap-x-6 text-black overflow-hidden flex-shrink-0">
               <li>
                 <Link href="/about">
                   <p>Case Studies</p>

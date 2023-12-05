@@ -16,10 +16,9 @@ const tiers = [{ tier: "Standard", image: "money.jpeg", pricing: "up to $1,000",
 
 
 const vibes = [{ vibe: "Corporate", image: "corporate-office.jpeg" },
-{ vibe: "Gala", image: "money.jpeg" },
+{ vibe: "Gala", image: "corporate-office.jpeg" },
 { vibe: "Social", image: "corporate-office.jpeg" }
 ]
-
 
 const services = ["DJ", "Panel", "Catering"]
 
@@ -30,9 +29,9 @@ export function Landing({ formID, visible, goBack, goNext }) {
             <div className="flex items-center justify-center h-full text-lg">
                 <div className="text-center">
                     <p className="mb-8 font-bold">Welcome to the planner!</p>
-                    <p className="mb-8">We'll be using AI to generate all the events in the area according to your choosing</p>
+                    <p className="mb-8">We'll be using AI to generate all the events in the area according to your choosing.</p>
                     <button
-                        className={`${buttonStyle} px-4 py-2 mb-9 rounded-full transition-transform transform hover:scale-110 duration-400`}
+                        className={`${buttonStyle} text-md font-semibold px-4 py-2 mb-8 w-30 h-13 rounded-lg transition-transform transform hover:scale-110 duration-400`}
                         style={{
                             backgroundImage: 'linear-gradient(to bottom right, #1539CE, #15CECE)',
                             color: '#ffffff',
@@ -55,13 +54,15 @@ export function WhereHeld({ formID, visible, goBack, goNext }: WhereHeldProps) {
 
             <form id={formID} className="mb-6 flex justify-center items-center">
                 <p className="mr-4 font-bold">Your event will be held in</p>
-                <label htmlFor="location" className="block mb-4">
-                <select
-            className="rounded-full bg-gray-200 p-2"
-            id="locationOptions"
-            name="locationOptions"
-            style={{ backgroundColor: 'rgba(21, 57, 206, 0.19)', color: 'rgba(21, 57, 206, 0.19)' }}
-          >
+                <label htmlFor="location"
+                    className="block mb-4 w-15 text-black"
+                    style={{ color: 'black' }}>
+                    <select
+                        className="rounded-full bg-gray-200 p-2"
+                        id="locationOptions"
+                        name="locationOptions"
+                        style={{ backgroundColor: 'rgba(21, 57, 206, 0.19)', color: 'black' }}
+                    >
                         {majorCities.map((city) => (
                             <option value={city} key={city}>
                                 {city}
@@ -73,14 +74,16 @@ export function WhereHeld({ formID, visible, goBack, goNext }: WhereHeldProps) {
 
             <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
+                    className="hover:bg-gray-500 text-white px-3 py-1 rounded-md transition-all mr-2"
                     onClick={goBack}
                 >
-                    Previous
+                    Back
                 </button>
 
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
+                    className="hover: bg-gray-500 text-white px-3 py-1 rounded-md transition-all ml-2"
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
                     onClick={goNext}
                 >
                     Next
@@ -102,29 +105,33 @@ export function GuestAmount({ formID, visible, goBack, goNext }) {
             <form id={formID} className="mb-4">
                 <label htmlFor="guestAmount" className="font-bold mb-4"> I am expecting an average of </label>
                 <input
-        className="border-4 bg-gray-200 mb-4 ml-3 mr-3 p-1 rounded-full"
-        type="number"
-        style={{ backgroundColor: 'rgba(21, 57, 206, 0.19)', color: 'rgba(21, 57, 206, 0.19)' }}
-      />
+                    className="border-4 bg-gray-200 mb-4 ml-3 mr-3 p-1 rounded-full w-20"
+                    type="number"
+                    style={{ backgroundColor: 'rgba(21, 57, 206, 0.19)', color: 'black' }}
+                />
                 <a className="mb-4 font-bold">guests</a>
             </form>
 
 
             <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
+                    className="hover:bg-gray-500 text-white px-3 py-1 rounded-md transition-all mr-2"
                     onClick={goBack}
                 >
-                    Previous
+                    Back
                 </button>
 
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
+                    className="hover: bg-gray-500 text-white px-3 py-1 rounded-md transition-all ml-2"
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
                     onClick={goNext}
                 >
                     Next
                 </button>
             </div>
+
+
 
         </div>
     )
@@ -132,7 +139,7 @@ export function GuestAmount({ formID, visible, goBack, goNext }) {
 
 function BudgetChoice({ checked, onSelect, tier, pricing, image, description }) {
     return (
-        <div className="border p-2">
+        <div className="border flex flex-col items-center md:w-40 md:h-50 transition-all overflow-hidden mt- mb-1 mx-1 rounded-xl pt-5">
             <label htmlFor={tier} onClick={() => onSelect(tier)}>
                 <input className="absolute w-0 h-0" type="radio" name="budget" />
                 <div className={`cursor-pointer ${checked ? "bg-blue-800 text-white" : "bg-white text-blue-800"}`}>
@@ -141,19 +148,21 @@ function BudgetChoice({ checked, onSelect, tier, pricing, image, description }) 
                     <div className="flex justify-center">
                         <img className="w-10 h-10" src={image} alt={tier} />
                     </div>
-                    <p className="text-sm">{description}</p>
+                    <p className="text-xs mb-3">{description}</p>
                 </div>
             </label>
         </div>
     );
 }
 
+
+
 export function Budget({ formID, visible, goBack, goNext }) {
     const [selection, changeSelection] = useState("");
 
     return (
         <div className={visible ? "block text-center mt-4" : "hidden "}>
-            <p className="font-mulish mb-2 text-2xl font-bold">What's your budget</p>
+            <p className="font-mulish mb-2 text-2xl font-bold">What's your budget?</p>
             <div className="flex justify-between mb-4">
                 <BudgetChoice
                     checked={tiers[0].tier === selection}
@@ -180,90 +189,93 @@ export function Budget({ formID, visible, goBack, goNext }) {
                     description={tiers[2].description}
                 />
             </div>
+
             <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
+                    className="hover:bg-gray-500 text-white px-3 py-1 rounded-md transition-all mr-2"
                     onClick={goBack}
                 >
-                    Previous
+                    Back
                 </button>
 
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
+                    className="hover: bg-gray-500 text-white px-3 py-1 rounded-md transition-all ml-2"
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
                     onClick={goNext}
                 >
                     Next
                 </button>
             </div>
+
         </div>
     );
 }
 
 export function VibeChoice({ checked, vibe, image, onSelect }) {
     const [isHovered, setHovered] = useState(false);
-  
+
     return (
-      <div className="border p-1 flex flex-col items-center md:w-48 md:h-48 transition-all overflow-hidden mb-3">
-        <label htmlFor={vibe} onClick={() => onSelect(vibe)}>
-          <input className="absolute w-0 h-0" type="radio" name="budget" />
-          <div
-            className={`cursor-pointer transition-all ${
-              isHovered ? "bg-blue-800 text-white scale-105" : "bg-white text-blue-800"
-            } p-0 flex flex-col items-center h-full`}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-          >
-            <p className="text-sm md:text-lg font-bold mb-2">{vibe}</p>
-            <div className="flex justify-center mb-2">
-              {/* Adjust the width and height as per your requirement */}
-              <img className="w-25 h-21" src={image} alt={vibe} />
+        <label className="border flex flex-col items-center md:w-30 md:h-40 transition-all overflow-hidden mb-3 mx-2 rounded-xl" htmlFor={vibe} onClick={() => onSelect(vibe)}>
+            <input className="absolute w-0 h-0" type="radio" name="budget" />
+            <div
+                className={`cursor-pointer transition-all ${isHovered ? "bg-blue-800 text-white scale-105" : "bg-white text-blue-800"
+                    } p-0 flex flex-col items-center h-full`}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+            >
+                <p className="mt-1 text-sm md:text-lg font-bold ">{vibe}</p>
+                <div className="justify-center mb-1">
+                    <img className="w-25 h-50" src={image} alt={vibe} />
+                </div>
             </div>
-          </div>
         </label>
-      </div>
     );
-  }
-  
-  export function Vibe({ formID, visible, goBack, goNext }) {
+}
+
+export function Vibe({ formID, visible, goBack, goNext }) {
     const [selection, changeSelection] = useState("");
-  
+
     return (
-      <div className={visible ? "block text-center mt-4 px-6" : "hidden"}>
-        <p className="mb-2 text-2xl font-bold">What's the vibe?</p>
-        <p className="text-sm mb-2">
-          This will help us provide you the best recommendations for your event.
-        </p>
-        <form id={formID} className="flex justify-between flex-wrap">
-          {vibes.map((info, index) => (
-            <VibeChoice
-              key={index}
-              checked={info.vibe === selection}
-              onSelect={changeSelection}
-              vibe={info.vibe}
-              image={info.image}
-            />
-          ))}
-        </form>
-  
-        <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
-          <button
-            className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
-            onClick={goBack}
-          >
-            Previous
-          </button>
-  
-          <button
-            className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
-            onClick={goNext}
-          >
-            Next
-          </button>
+        <div className={visible ? "block text-center mt-4 px-3" : "hidden"}>
+            <p className="mb- text-2xl font-bold">What's the vibe?</p>
+            <p className="text-sm mb-5">
+                This will help us provide you the best recommendations for your event.
+            </p>
+            <form id={formID} className="flex justify-between">
+                {vibes.map((info, index) => (
+                    <VibeChoice
+                        key={index}
+                        checked={info.vibe === selection}
+                        onSelect={changeSelection}
+                        vibe={info.vibe}
+                        image={info.image}
+                    />
+                ))}
+            </form>
+
+            <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
+                <button
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
+                    className="hover:bg-gray-500 text-white px-3 py-1 rounded-md transition-all mr-2"
+                    onClick={goBack}
+                >
+                    Back
+                </button>
+
+                <button
+                    className="hover: bg-gray-500 text-white px-3 py-1 rounded-md transition-all ml-2"
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
+                    onClick={goNext}
+                >
+                    Next
+                </button>
+            </div>
+
         </div>
-      </div>
     );
-  }
-  
+}
+
 export function Services({ formID, visible, goBack, goNext }) {
     // Split the services into three sections
     const sections = [
@@ -290,14 +302,16 @@ export function Services({ formID, visible, goBack, goNext }) {
 
             <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
+                    className="hover:bg-gray-500 text-white px-3 py-1 rounded-md transition-all mr-2"
                     onClick={goBack}
                 >
-                    Previous
+                    Back
                 </button>
 
                 <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all ml-2`}
+                    className="hover: bg-gray-500 text-white px-3 py-1 rounded-md transition-all ml-2"
+                    style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
                     onClick={goNext}
                 >
                     Next
@@ -313,24 +327,25 @@ export function Submit({ formID, visible, goBack, goNext }) {
         <div className={visible ? "block text-center mt-4" : "hidden"}>
             <div className="flex flex-col items-center">
                 <input form={formID} className="text-2xl font-bold mb-4" type="submit" value="Ready to Submit?" />
-                
+
                 <div style={{ marginTop: 'auto', marginBottom: '1px' }}>
+                    <button
+                        style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
+                        className="hover:bg-gray-500 text-white px-3 py-1 rounded-md transition-all mr-2"
+                        onClick={goBack}
+                    >
+                        Back
+                    </button>
 
-                <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
-                    onClick={goBack}
-                >
-                    Previous
-                </button>
-                        
-
-                <button
-                    className={`${buttonStyle} bg-blue-500 hover:bg-gray-500 text-white px-3 py-1 rounded-full transition-all mr-2`}
-                    onClick={goNext}
-                >
-                    Submit
+                    <button
+                        className="hover: bg-gray-500 text-white px-3 py-1 rounded-md transition-all ml-2"
+                        style={{ backgroundColor: 'rgba(25, 43, 194, 1)' }}
+                        onClick={goNext}
+                    >
+                        Next
                     </button>
                 </div>
+
             </div>
         </div>
     );
